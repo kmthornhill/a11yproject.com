@@ -1,6 +1,17 @@
-// Hi Tatiana! You can use this file  to play around!
 
+// COLOURS
+
+$grey: #767676;
+$black: #000000;
+$slate-grey: #333333;
+
+body {
+	font-family: $font-family-secondary;
+	color: $grey;
+}
 
 h1 {
-	color: #ff0000;
+	color: $black;
+	font-family: $font-family-primary;
+	font-weight: 100;
 }
