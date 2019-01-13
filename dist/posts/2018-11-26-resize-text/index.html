@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2018-11-26-resize-text/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2018-11-26-resize-text/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2018-11-26-resize-text/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>Quick test: Resize text</h1>
+
+<p>Resize text and make sure everything on the page works. Repeat until you get to 200% zoom. Seems simple? It is.</p>
+<h2 id="essential-abilities">Essential abilities <a class="direct-link" href="#essential-abilities" aria-hidden="true">#</a></h2>
+<ul>
+<li><strong>Sight</strong>: This method tests the visual appearance of content on the page</li>
+<li><strong>Interact with content via a pointer</strong>: This method tests mouse interactions</li>
+</ul>
+<p>If you know of a method that doesn't require either of these abilities, please update this Quick Test.</p>
+<h2 id="background">Background <a class="direct-link" href="#background" aria-hidden="true">#</a></h2>
+<p>People with low vision may need to increase the size of text in order to use the page.</p>
+<p>When someone resizes text, any of the following can break the page:</p>
+<ul>
+<li>text on the page is no longer readable</li>
+<li>content is lost or truncated</li>
+<li>interactive elements overlapping each other</li>
+</ul>
+<h2 id="how-to-test">How to test <a class="direct-link" href="#how-to-test" aria-hidden="true">#</a></h2>
+<p>Testing is pretty straight forward.</p>
+<ol>
+<li>Choose the right browser</li>
+<li>Resize text</li>
+<li>Check everything</li>
+</ol>
+<h3 id="choosing-a-browser">Choosing a browser <a class="direct-link" href="#choosing-a-browser" aria-hidden="true">#</a></h3>
+<p>Firefox is the best browser for testing <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">WCAG Resize Text (Success Criterion 1.4.4)</a>.</p>
+<ul>
+<li>It makes resizing text really easy</li>
+<li>It informs you of the current zoom level</li>
+<li>It's available on all popular Operating Systems</li>
+</ul>
+<p>Safari and Chrome work, but not as well:</p>
+<ul>
+<li>Ability to resize text is not obvious</li>
+<li>Does not display the current zoom level</li>
+<li>Safari is only available on macOS</li>
+</ul>
+<p>Edge won't work:</p>
+<ul>
+<li>Edge only supports text-only resize in Reading view</li>
+</ul>
+<h3 id="resizing-text-in-firefox">Resizing text in Firefox <a class="direct-link" href="#resizing-text-in-firefox" aria-hidden="true">#</a></h3>
+<ol>
+<li>Go to <strong>View &gt; Zoom</strong> and select <strong>Zoom Text Only</strong></li>
+<li>Zoom to 200%</li>
+</ol>
+<ul>
+<li><kbd>Ctrl</kbd> + <kbd>+</kbd></li>
+<li><kbd>Ctrl</kbd> + Scroll Up</li>
+</ul>
+<h3 id="resizing-text-in-chrome">Resizing text in Chrome <a class="direct-link" href="#resizing-text-in-chrome" aria-hidden="true">#</a></h3>
+<ol>
+<li>Copy <code>chrome://settings/fonts</code> to the address bar and then return on your keyboard</li>
+<li>Increase the <strong>font size</strong> to 32px (default is 16px)</li>
+</ol>
+<h3 id="checking-everything">Checking everything <a class="direct-link" href="#checking-everything" aria-hidden="true">#</a></h3>
+<p>After doubling the size of text, verify the following:</p>
+<ul>
+<li>All content on the page should still be readable
+<ul>
+<li>Text shouldn't be too cut off</li>
+<li>Text needed for understanding shouldn't be truncated</li>
+<li>Text shouldn't overlap too much</li>
+</ul>
+</li>
+<li>Interactions still work
+<ul>
+<li>Buttons, links, and inputs are still usable with mouse, touch, or similar</li>
+</ul>
+</li>
+</ul>
+<h4 id="thorough-check">Thorough check <a class="direct-link" href="#thorough-check" aria-hidden="true">#</a></h4>
+<p>Some people might not need to zoom text up to 200%. And there might be a level of zoom below 200% where content doesn't work.</p>
+<p>To do a more thorough job, you should check the page at each of the zoom steps the browser makes to see if there are any odd breakpoints.</p>
+<h3 id="exceptions">Exceptions <a class="direct-link" href="#exceptions" aria-hidden="true">#</a></h3>
+<ul>
+<li>Images of text won't resize</li>
+<li>Captions over videos likely won't resize</li>
+</ul>
+<h2 id="can-i-zoom-everything-instead-of-resizing-text-only%3F">Can I zoom everything instead of resizing text only? <a class="direct-link" href="#can-i-zoom-everything-instead-of-resizing-text-only%3F" aria-hidden="true">#</a></h2>
+<p>Without going too deep into the Success Criterion, it does not require you to use text-only zoom. But I think it's still a good idea to make sure that pages work well with text-only zoom since some people may want only the text to be bigger.</p>
+<p>Practically speaking, I don't think many people know that text-only resizing is available. And that's assuming they're using a browser that supports it. I'd expect most folks that want larger text would use regular browser zooming more often than text-only zooming.</p>
+<p>There is even a <a href="https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/G142">Success Technique (G142)</a> that says you can pass the Success Criterion by zooming everything.</p>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>

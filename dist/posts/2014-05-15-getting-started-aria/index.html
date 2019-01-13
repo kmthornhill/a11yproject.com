@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2014-05-15-getting-started-aria/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2014-05-15-getting-started-aria/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2014-05-15-getting-started-aria/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>Getting started with ARIA</h1>
+
+<h2 id="what-is-aria%3F">What is ARIA? <a class="direct-link" href="#what-is-aria%3F" aria-hidden="true">#</a></h2>
+<p>ARIA (Accessible Rich Internet Applications), is a spec from the W3C and created to improve accessibility of applications by providing extra information to screen readers via HTML attributes. Out of the box, screen readers work with regular HTML, but adding ARIA can provide screen reader users with more context and greater interactivity with content.</p>
+<p>ARIA has no effect on how elements are displayed or behave in browsers. It does not add new functionality and is meant to act only as an extra descriptive layer for screen readers.</p>
+<h3 id="links">Links <a class="direct-link" href="#links" aria-hidden="true">#</a></h3>
+<ul>
+<li>HTML5 ARIA spec -  <a href="https://www.w3.org/TR/html-aria/">https://www.w3.org/TR/html-aria/</a></li>
+<li>ARIA spec - <a href="https://www.w3.org/TR/wai-aria/">https://www.w3.org/TR/wai-aria/</a></li>
+</ul>
+<h2 id="aria-attributes">ARIA attributes <a class="direct-link" href="#aria-attributes" aria-hidden="true">#</a></h2>
+<p>ARIA attributes are predefined in the spec and are divided into two categories, roles and states &amp; properties. Both can be added directly in the markup or via JavaScript and should be updated as needed based on user interactions. There are rules behind which elements may receive types of ARIA attributes, as well as design guidelines for how and when these should be updated in common interactive widgets.</p>
+<h3 id="links-2">Links <a class="direct-link" href="#links-2" aria-hidden="true">#</a></h3>
+<ul>
+<li>Roles - <a href="https://www.w3.org/WAI/PF/aria/roles">https://www.w3.org/WAI/PF/aria/roles</a></li>
+<li>States and Properties - <a href="https://www.w3.org/WAI/PF/aria/states_and_properties">https://www.w3.org/WAI/PF/aria/states_and_properties</a></li>
+<li>Design Patterns - <a href="https://www.w3.org/TR/wai-aria-practices/#aria_ex">https://www.w3.org/TR/wai-aria-practices/#aria_ex</a></li>
+</ul>
+<h2 id="aria-roles">ARIA roles <a class="direct-link" href="#aria-roles" aria-hidden="true">#</a></h2>
+<p>An ARIA role is added via a <code>role=&quot;&lt;ROLE TYPE&gt;&quot;</code> attribute and does not change for an element once set. There are four categories of ARIA roles.</p>
+<ul>
+<li>
+<p>Landmark</p>
+<p>Landmark roles identify large content areas and are used by screen readers for navigation. If landmark roles are used, it's important that all page content fall under a role so that all content is available to the navigation.<br>
+E.g. <code>&lt;footer role=&quot;contentinfo&quot;&gt;</code></p>
+</li>
+<li>
+<p>Document</p>
+<p>Document roles provide a structural description for a section and are typically non-interactive. Some document roles map onto existing HTML tags (E.g. <code>&lt;div role=&quot;form&quot;&gt;</code>) and are only meant for cases when using the native tag is not possible. It's unnecessary to add ARIA roles to existing semantically meaningful elements. For example, <code>&lt;form role=&quot;form&quot;&gt;</code> is redundant.</p>
+</li>
+<li>
+<p>Widget</p>
+<p>Widget roles describe common interactive patterns that currently lack semantic equivalents in HTML, and can be used on their own, or as part of larger, composite widgets.<br>
+E.g. <code>&lt;div role=&quot;tooltip&quot;&gt;</code></p>
+</li>
+<li>
+<p>Abstract</p>
+<p>Abstract roles are only used by browsers to help organize and streamline a document, and <strong>never</strong> by developers to mark up HTML. They are not mapped onto screen readers and provide no extra accessibility information directly between HTML and screen reader.</p>
+</li>
+</ul>
+<h2 id="states-and-properties">States and properties <a class="direct-link" href="#states-and-properties" aria-hidden="true">#</a></h2>
+<p>ARIA states and properties are often used to support ARIA roles that exist on a page. Properties often describe relationships with other elements and for the most part, do not change once they're set. States are more dynamic and are typically updated with JavaScript as a user interacts with a page. It's common to refer to states and properties collectively as just ARIA attributes. Screen readers are notified when attributes change and can announce these changes to users after an interaction takes place.</p>
+<h2 id="when-to-use-aria">When to use ARIA <a class="direct-link" href="#when-to-use-aria" aria-hidden="true">#</a></h2>
+<p>Native HTML semantics should still be used whenever possible, but ARIA is useful when certain design patterns or interactions make it impossible to do so. For example, a complex tabbed-interface has no semantic equivalent with HTML, but a <code>role=&quot;tablist&quot;</code> and its related attributes can be added to provide this detail to screen readers. ARIA is also useful to describe newer HTML elements that may not yet have full cross-browser support or be understood by screen readers.</p>
+<p>To create accessible applications, basic principles of semantic HTML, keyboard support, and color contrast should still be the primary focus of developers. ARIA may be used to &quot;fill in the blanks&quot; where web page information isn't understood or available to a screen reader via HTML alone.</p>
+<h3 id="links-3">Links <a class="direct-link" href="#links-3" aria-hidden="true">#</a></h3>
+<ul>
+<li>ARIA in HTML <a href="https://www.w3.org/TR/html-aria/">https://www.w3.org/TR/html-aria/</a></li>
+</ul>
+<h2 id="aria-examples">ARIA examples <a class="direct-link" href="#aria-examples" aria-hidden="true">#</a></h2>
+<ul>
+<li>Landmark role<br>
+ The <code>&lt;nav&gt;</code> element implicitly has a landmark role of <code>navigation</code> allowing screen reader users to navigate directly to this element. Review the article <a href="https://a11yproject.com/posts/aria-landmark-roles/">Quick Tip: Aria Landmark Roles and HTML5 Implicit Mapping</a> for more information.</li>
+</ul>
+<pre><code>    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/contact&quot;&gt;Contact Page&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+</code></pre>
+<ul>
+<li>aria-labelledby</li>
+</ul>
+<pre><code>&lt;section aria-labelledby=&quot;KittensHeader&quot;&gt;
+  &lt;h2 id=&quot;KittensHeader&quot;&gt;All Abbout Kittens&lt;/h2&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<p>The <code>&lt;section&gt;</code> element includes the ARIA property <code>aria-labelledby</code> which lists the ID of the section title. Screen readers will announce this title when they reach the <code>&lt;section&gt;</code> element, giving users a sense of the content contained in this portion.</p>
+<ul>
+<li>Role, state, and property together in a Tab control</li>
+</ul>
+<pre><code>&lt;ul role=&quot;tablist&quot;&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#first-tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;first-tab&quot;&gt;Panel 1&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#second-tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;second-tab&quot;&gt;Panel 2&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;first-tab&quot; role=&quot;tabpanel&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;second-tab&quot; role=&quot;tabpanel&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Each element has an ARIA role and attributes to create a complete tab widget. The relationship between a tab link and tab panel is now available to screen readers.</p>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>

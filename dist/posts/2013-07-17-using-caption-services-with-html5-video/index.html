@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2013-07-17-using-caption-services-with-html5-video/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2013-07-17-using-caption-services-with-html5-video/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2013-07-17-using-caption-services-with-html5-video/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>How-to: Using caption services with HTML5 video</h1>
+
+<p>One of the great things about the internet is the ability to share video. With HTML5 we can now use video without the use of Flash. This makes video more accessible as the controls are located in the DOM. However, to do accessible video right, you need to include captions and transcripts.</p>
+<p>In addition to making video accessible to those with hearing issues, having a transcript on the page can provide you localization of a video not always available in the local language. With a transcript on your page, you may increase your search engine rankings by making your content easily indexed by search engine crawl spiders.</p>
+<p>So how do we pull off putting captions into a video after the video has been produced? Fortunately, the HTML5 video tag has a solution for us. We have to provide a transcript file in either XML or a VTT as a track element after your video source files.</p>
+<pre><code>&lt;video class=&quot;span12 readable&quot; poster=&quot;your-video-poster.jpg&quot; controls title=&quot;My Movie&quot;&gt;
+    &lt;source  src=&quot;your-video.m4v&quot; type='video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;' /&gt;
+    &lt;source  src=&quot;your-video.ogg&quot; type='application/ogg' /&gt;
+    &lt;source  src=&quot;your-video.webm&quot; type='video/webm' /&gt;
+    &lt;track src=&quot;your-video-transcript.vtt&quot; label=&quot;English Captions&quot; kind=&quot;subtitles&quot; srclang=&quot;en-us&quot; default /&gt;
+&lt;/video&gt;
+</code></pre>
+<p>But what do these track files look like?</p>
+<h2 id="vtt">VTT <a class="direct-link" href="#vtt" aria-hidden="true">#</a></h2>
+<p>VTT is a specially formatted text document. It contains each of the queues numbered, followed by the start time &amp; end time and finally the text. It is recommended to include in the text the name of the person talking. Some styling can be included in the text via basic HTML elements like <code>i</code> or <code>b</code>.</p>
+<p>We start it by declaring it a WEBVTT file.</p>
+<pre><code>WEBVTT
+
+1
+00:00:09.000 --&gt; 00:00:11.000
+&lt;b&gt;Alice:&lt;/b&gt; Curiouser and curiouser.
+
+2
+00:00:17.000 --&gt; 00:00:18.000
+&lt;b&gt;Rabbit:&lt;/b&gt; I told you she was the right Alice!
+
+3
+00:00:19.000 --&gt; 00:00:20.000
+&lt;b&gt;Mouse:&lt;/b&gt; I am not convinced.
+</code></pre>
+<h2 id="ttml">TTML <a class="direct-link" href="#ttml" aria-hidden="true">#</a></h2>
+<p>In addition to the VTT file format, you can also use TTML (Time Text Markup Language) which is a specific XML format that is currently supported in Flash and used by some major properties on the Internet. If you are migrating from Flash, this may be the best choice as you may have the files already.</p>
+<pre><code>&lt;tt xmlns=&quot;http://www.w3.org/ns/ttml&quot; xml:lang=&quot;en&quot;&gt;
+    &lt;body&gt;
+        &lt;div&gt;
+            &lt;p begin=&quot;00:00:9.00&quot; end=&quot;00:00:11.00&quot;&gt;
+                Alice: Curiouser and curiouser.
+            &lt;/p&gt;
+
+            &lt;p begin=&quot;00:00:17:00&quot; end=&quot;00:00:18:00&quot;&gt;
+                Rabbit: I told you she was the right Alice!
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/tt&gt;
+</code></pre>
+<h2 id="transcribing">Transcribing <a class="direct-link" href="#transcribing" aria-hidden="true">#</a></h2>
+<p>Now that you know how to implement it, you need to transcribe all of your videos. You can watch, and rewatch, and rewatch them to capture all of the talking perfectly timed (I watched that Alice in Wonderland trailer 30 or 40 times and it is only a minute long). However, there are services that can handle the transcription for you. These will typically start at $1 per minute for transcription with a fee of $0.25 per minute for the needed timestamping.</p>
+<p>A few well-reviewed services include:</p>
+<ul>
+<li><a href="https://verbalink.com/">https://verbalink.com/</a></li>
+<li><a href="https://www.speechpad.com/">https://www.speechpad.com/</a></li>
+<li><a href="https://www.rev.com/transcription">https://www.rev.com/transcription</a></li>
+</ul>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2013-01-16-future-proof-your-accessibility/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2013-01-16-future-proof-your-accessibility/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2013-01-16-future-proof-your-accessibility/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>How-to: Future proof your accessibility efforts.</h1>
+
+<p>Future proofing your accessibility work will help lower your development costs as well as support current and future user agents, such as assistive technologies (AT). <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#ensure-compat" title="WCAG 2.0 recommendation 4.1: Compatible">WCAG</a> has two guidelines, <strong>Parsing</strong> and <strong>Name, role, value</strong>, for future-proofing your website.</p>
+<ol>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html">Parsing</a> relates to ensuring that user agents and AT are able to read and navigate your web site correctly. Validating your site using the <a href="https://validator.w3.org/nu/">W3C Markup Validator</a> can help you find errors in your markup and ease the burden of the AT parsing your web page. Follow the official specifications for your markup. E.g. make sure to close open tags (<code>&lt;div class=&quot;a-class&quot;&gt;...&lt;/div&gt;</code>) and use unique IDs.</li>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html">Name, role, value</a> are related to interface components and controls (i.e, focus states). By default, all standard HTML controls already meet this criteria. This guideline is aimed mainly at developers that design and/or script their own interface components and controls.</li>
+</ol>
+<p>While these are only two recommendations to make your site more accessible, it should have a good spot in every web developer's workflow. Use of checklists, <a href="https://a11yproject.com/checklist.html" title="Checklist for accessibility tasks">like The Accessibility Project checklist</a>, can help keep you on task.</p>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>

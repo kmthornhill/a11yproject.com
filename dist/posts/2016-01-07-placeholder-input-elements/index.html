@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2016-01-07-placeholder-input-elements/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2016-01-07-placeholder-input-elements/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2016-01-07-placeholder-input-elements/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>How-to: Use &lt;code&gt;placeholder&lt;/code&gt; attributes</h1>
+
+<p><strong>Short answer:</strong> Don't replace a <code>label</code> with a <code>placeholder</code> attribute. If labels are visually hidden, confirm that placeholders have sufficient contrast.</p>
+<hr>
+<p>Form input <code>placeholder</code> attributes are helpful for providing hints to (sighted) users in forms. Often times, due to design decisions, a <code>placeholder</code> is used to replace a more semantic <code>label</code> element. Unfortunately, accessible <code>placeholder</code> browser support isn't complete and placeholders often lack sufficient color contrast by default.</p>
+<p>Now, there's nothing wrong with using placeholders - they can still be used. However, they should be used in <em>addition</em> to a label, not as a replacement. What happens when we don't use a label for an input element, is a screen reader will get to that field, but won't have any information for the user on what the input element is for. So the screen reader user doesn't know what information to fill out. Also, a placeholder disappears when the input element is in focus, and can be an issue for people with memory impairments.</p>
+<p>Make your forms accessible by using one of the following methods (in order of preference):</p>
+<ol>
+<li>Redesign to include a proper visible <code>label</code></li>
+<li>Use <code>aria-label</code> or <code>aria-labelledby</code> to provide assistive text</li>
+<li><a href="https://a11yproject.com/posts/how-to-hide-content/">Visually hide</a> <code>label</code> elements (in an accessible manner)</li>
+</ol>
+<p>While we're paying attention to our placeholder text, let's review how to add better contrast:</p>
+<pre class="language-css"><code class="language-css"><span class="highlight-line"><span class="token selector">::-webkit-input-placeholder</span> <span class="token punctuation">{</span></span><br><span class="highlight-line">  <span class="token property">color</span><span class="token punctuation">:</span> #626262<span class="token punctuation">;</span></span><br><span class="highlight-line"><span class="token punctuation">}</span></span><br><span class="highlight-line"><span class="token selector">::-moz-placeholder</span> <span class="token punctuation">{</span></span><br><span class="highlight-line">  <span class="token property">color</span><span class="token punctuation">:</span> #626262<span class="token punctuation">;</span></span><br><span class="highlight-line"><span class="token punctuation">}</span></span><br><span class="highlight-line"><span class="token selector">:-moz-placeholder</span> <span class="token punctuation">{</span>  <span class="token comment">/* Older versions of Firefox */</span></span><br><span class="highlight-line">  <span class="token property">color</span><span class="token punctuation">:</span> #626262<span class="token punctuation">;</span></span><br><span class="highlight-line"><span class="token punctuation">}</span></span><br><span class="highlight-line"><span class="token selector">:-ms-input-placeholder</span> <span class="token punctuation">{</span></span><br><span class="highlight-line">  <span class="token property">color</span><span class="token punctuation">:</span> #626262<span class="token punctuation">;</span></span><br><span class="highlight-line"><span class="token punctuation">}</span></span></code></pre>
+<p>The above CSS assumes that the background for the form controls are <code>#fff</code>. If we test <code>#fff</code> and <code>#626262</code> in a color contrast tool like <a href="http://contrast-finder.tanaguru.com/result.html;jsessionid=57DFFB6E8E217E7C92C55B7CE2629CF6?foreground=%23626262&amp;background=%23ffffff&amp;isBackgroundTested=false&amp;ratio=4.5&amp;algo=HSV">Tanaguru Contrast-Finder</a>, the results will approve these colors for valid contrast. You can use your own color for this, but be sure to read about <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head">how conformance levels work</a>, and use a color contrast tool to confirm.</p>
+<p>In the above CSS, each selector for placeholder text needs to be seperate in their own declaration blocks. The reason for this is due to the prefixes needed for placeholder styles to apply. The browser will read the first selector, and if it's not the prefix for that browser, instead of reading through the rest until one applies, it will ignore the rest. To ensure each browser can find it's own prefixed placeholder text styles, it's necessary to write them each separate as we did above.</p>
+<p>Once we have sufficient color contrast in our placeholders, placeholders can be used in addition to labels. Here are two examples of forms where placeholders are used with labels to maintain accessibility.</p>
+<p><strong>Explicit labeling:</strong></p>
+<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line">    Your Name:</span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>What<span class="token punctuation">'</span>s your name?<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Submit Name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span></code></pre>
+<p><strong>Implicit &amp; explicit labeling combined:</strong></p>
+<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line">    Your Name:</span><br><span class="highlight-line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-name<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>What<span class="token punctuation">'</span>s your name?<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></span><br><span class="highlight-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Submit Name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><br><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span></code></pre>
+<p>Note that in the second example above, omitting the <code>for</code> attribute on the label is still valid, but still best practice to include. By keeping the <code>for</code> attribute in place, we're combining both explicit and implicit techniques. For more about explicit and implicit labeling, check out <a href="https://www.aaron-gustafson.com/notebook/labeled-with-love/">&quot;Labeled with Love&quot;</a>. By adding the <code>for</code> attribute to a label with the same value as the ID for the input element it corresponds to, the label becomes <em>explicitly</em> associated with that input element. Explicit labeling is great for screen reader users and when clicking/focusing that label, it will automatically focus the associated input element.</p>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>

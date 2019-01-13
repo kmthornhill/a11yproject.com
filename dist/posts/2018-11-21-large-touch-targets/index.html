@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Webpage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The A11Y Project</title>
+<meta name="title" content="The A11Y Project">
+<meta name="description" content="A community-driven effort to make web accessibility easier.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/2018-11-21-large-touch-targets/">
+<meta property="og:title" content="The A11Y Project">
+<meta property="og:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="og:image" content="URL/path/to/img.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/2018-11-21-large-touch-targets/">
+<meta property="twitter:title" content="The A11Y Project">
+<meta property="twitter:description" content="A community-driven effort to make web accessibility easier.">
+<meta property="twitter:image" content="URL/path/to/img.png">
+
+    <link rel="stylesheet" as="style" href="../css/screen.min.css" />
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The A11Y Project" />
+    <link rel="sitemap" type="application/xml" title="The A11Y Project" href="/sitemap.xml" />
+    <link rel="author" href="humans.txt" />
+    
+    
+    
+  </head>
+  <body>
+    <!-- Current page: /posts/2018-11-21-large-touch-targets/ -->
+    <a href="#main">Skip to main content</a>
+
+
+    <header>
+  
+  <h1>
+    <a rel="index" href="/">The A11Y Project</a>
+  </h1>
+
+  <nav id="primary-nav" aria-label="Site">
+    <h2>Site navigation</h2>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+</header>
+
+
+    <main id="main" class="tmpl-post" tabindex="-1">
+      <h1>Quick test: Large touch targets</h1>
+
+<p>A touch target is the total area a user can click or tap on to activate an interactive element such as a link, input, or button.</p>
+<h2 id="background">Background <a class="direct-link" href="#background" aria-hidden="true">#</a></h2>
+<p>Ensuring that interactive elements have sufficiently large touch targets helps people with <a href="https://webaim.org/articles/motor/motordisabilities">motor control issues</a> use your website or application. Providing a too-small touch target may make it difficult or impossible for some people to be able to reliably reach the area required to activate the element. Think of it like trying to thread a needle.</p>
+<p>The <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">Web Content Accessibility Guidelines (WCAG) specify a minimum size of 44 by 44 CSS pixels</a> for all interactive elements. The exceptions are:</p>
+<ul>
+<li>If the interactive element's functionality can be activated by another element of acceptable size on the same page.</li>
+<li>If the interactive element is rendered inline within a block of text, such as a link.</li>
+<li>If the interactive element's size is controlled by the browser or operating system's UI.</li>
+<li>If the interactive element has a design whose presentation requires a certain size or shape.</li>
+</ul>
+<p>Only the inline element exception case typically applies to web design. Even then, a recommended <a href="https://blog.marvelapp.com/body-text-small/">larger body type size</a> will help both increase inline touch target size and help accommodate people with low vision.</p>
+<p>Small touch targets such as icon buttons can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a> to expand their interactive area without increasing the visible size:</p>
+<p><img src="/img/posts/2018-11-21-large-touch-targets/touch-target-padding.svg" alt="A translate button with a square purple area surrounding it. The button is labeled, &quot;Button, 32 CSS pixels. The purple area is labeled, &quot;Interactive area, 44 CSS pixels.&quot;"></p>
+<p>It is also recommended that you <a href="https://axesslab.com/hand-tremors/">add space between large interactive elements</a>, to help prevent people from accidentally clicking or tapping the wrong one.</p>
+<h2 id="how-to-test">How to test <a class="direct-link" href="#how-to-test" aria-hidden="true">#</a></h2>
+<p>To determine the CSS pixel size of an interactive element, use a browser's Inspector feature to check it's computed value.</p>
+<p>Two common methods to open a browser's Inspector panel are typing <kbd>Command/Control</kbd> + <kbd>Option</kbd> + <kbd>i</kbd> on your keyboard, or by right clicking on an element on your page and choosing the Inspect option.</p>
+<p>If you right click on the interactive element you want to test, it will automatically be highlighted when you choose the Inspect option in the right click menu. For most browsers, this method of selecting an element will also display its CSS pixel height and width:</p>
+<p><img src="/img/posts/2018-11-21-large-touch-targets/touch-target-inspector.png" alt="Chrome's inspector highlighting the height and width of Wikipedia's logo, which serves as a link back to the Wikipedia homepage. The logo's computed size is 160 by 160 CSS pixels. The inspector also has the code for the logo highlighted, as well as its computed properties. Screenshot."></p>
+<p>The inspector also has a Computed panel. It will display the selected element's <code>height</code> and <code>width</code> values, as well as an alphabetical list of the other computed CSS properties. This can be good for checking how the browser ultimately renders your site's CSS.</p>
+
+
+<p><a href="/">← Home</a></p>
+
+    </main>
+
+    <footer id="footer" role="contentinfo">
+  <h2>Footer</h2>
+
+  <nav id="" aria-label="Site">
+    <h3>Main nav repeated</h3>
+    <ul><li><a href="/about/" >About</a></li><li><a href="/posts/" >Archive</a></li><li><a href="/checklist/" >Checklist</a></li><li><a href="/events/" >Events</a></li><li><a href="/follow/" >Follow</a></li><li><a href="/" >Home</a></li><li><a href="/patterns/" >Patterns</a></li><li><a href="/resources/" >Resources</a></li><li><a href="/sandbox/" >Sandbox</a></li></ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-contact">
+    <h3 id="footer-contact">Contact</h3>
+    <p>
+      Here's how to stay in touch!
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://twitter.com/a11yproject">@A11YProject</a></li>
+      <li id="email-address"><noscript>hello at a11yproject dot com</noscript></li>
+      
+      <li><a href="">RSS Feed</a></li>
+    </ul>
+  </nav>
+
+  <nav id="contact" aria-labelledby="footer-github">
+    <h3 id="footer-github">GitHub</h3>
+    <p>
+      GitHub is platform we use to host and manage the code that runs this website.
+    </p>
+    <ul>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com">Website code</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D++Good+First+Issue%22">Good first issues to get started</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22%5BStatus%5D+Help+Wanted%22">Other issues we'd love help with</a></li>
+    </ul>
+  </nav>
+
+  <nav id="legal" aria-labelledby="footer-legal">
+    <h3 id="footer-legal">Legal</h3>
+    <p>
+      Disclousures and policies.
+    </p>
+    <ul>
+      <li><a href="">Accessibility Statement</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">Code of Conduct</a></li>
+      <li><a rel="external noopener" href="https://github.com/a11yproject/a11yproject.com/blob/gh-pages/CONTRIBUTING.md#contributing-to-the-a11y-project">Contributing guidelines</a></li>
+      <li><a href="">Security</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    &copy; <span id="copyright-year"></span> The Accessibility Project. <a rel="external noopener" href="https://www.apache.org/licenses/LICENSE-2.0">APLv2</a>.
+  </p>
+  <p>
+    <p><a href="">Sitemap</a>. Powered by <a rel="external noopener" href="https://www.11ty.io/">Eleventy</a></p>
+  </p>
+
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = '2013-' + new Date().getFullYear();</script>
+  <script type="text/javascript">document.getElementById('email-address').innerHTML =
+  '<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'&'+
+  '#'+'1'+'0'+'4'+';'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'5'+'3'+';'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+'#'+
+  '1'+'1'+'1'+';'+'&'+'#'+'3'+'7'+';'+'4'+'&'+'#'+'4'+'8'+';'+'%'+'6'+'1'+'&'+'#'+'4'+'9'+';'+'%'+'3'+
+  '&'+'#'+'4'+'9'+';'+'%'+'7'+'9'+'%'+'7'+'0'+'%'+'7'+'2'+'o'+'%'+'&'+'#'+'5'+'4'+';'+'A'+'e'+'&'+'#'+
+  '9'+'9'+';'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'&'+'#'+'3'+'7'+';'+'6'+'F'+'m'+"'"+'>'+'&'+'#'+'1'+'0'+'4'+
+  ';'+'e'+'l'+'&'+'#'+'1'+'0'+'8'+';'+'o'+'&'+'#'+'6'+'4'+';'+'a'+'1'+'1'+'&'+'#'+'1'+'2'+'1'+';'+'p'+
+  'r'+'o'+'j'+'&'+'#'+'1'+'0'+'1'+';'+'c'+'t'+'&'+'#'+'4'+'6'+';'+'c'+'o'+'m'+'<'+'/'+'a'+'>';
+  </script>
+
+</footer>
+
+
+  </body>
+</html>
