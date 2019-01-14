@@ -1,17 +1,108 @@
-
 // COLOURS
 
-$grey: #767676;
 $black: #000000;
 $slate-grey: #333333;
+$grey: #767676;
+
+$blue: #0000B5;
+$purple: #8B008B;
+$red: #FE0703;
+$green: #246959;
+$green-10: #D3E1DE;
+
+// TYPOGRAPHY
 
 body {
 	font-family: $font-family-secondary;
-	color: $grey;
+}
+
+p {
+	font-size: 20px;
+	margin-bottom: 1em;
+	line-height: 1.5;
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+	border-bottom: 2px solid;
+	margin-bottom: 3px;
+}
+
+a:hover {
+	border-bottom: 3px solid;
 }
 
 h1 {
-	color: $black;
+
 	font-family: $font-family-primary;
 	font-weight: 100;
+	font-size: 2.5em;
+	margin: 1.25em 0 1em 0;
+}
+
+h2 {
+	font-family: $font-family-primary;
+	font-weight: 100;
+	margin: 1em 0 .75em 0;
+}
+
+h3 {
+	font-family: $font-family-primary;
+	font-weight: 100;
+	margin: .75em 0 .5em 0;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+	text-decoration: uppercase;
+}
+
+.eyebrow {
+	text-decoration: uppercase;
+	letter-spacing: .5em;
+}
+
+.display-lg {
+	font-family: $font-family-primary;
+	font-size: 2.5em;
+	font-weight: 300;
+}
+
+.display-md {
+
+}
+
+.display-sm {
+
+}
+
+// SECTION STYLINGS
+
+header {
+	background-color: $green-10;
+	padding: 2em;
+}
+
+header ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 60px;
+}
+
+header ul a {
+	border: 0;
+}
+
+#section-table-of-contents {
+
 }
