@@ -6,8 +6,8 @@ markdown: kramdown
 # configuration required for some pages
 title: The A11Y Project
 description: A community-driven effort to make web accessibility easier.
-url: http://kmthornhill.github.io
-base_url: 'a11yproject.com'
+url: https://kmthornhill.github.io
+base_url: /a11yproject.com
 avatar: /img/avatar.png
 social: /img/social.png
 author: Dave Rupert
